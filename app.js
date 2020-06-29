@@ -80,7 +80,7 @@ const prompt = function() {
         }
     }).then(() => {
         if (cont === false) {
-            fs.writeFile('output/team.html', render(staff), err => {
+            fs.writeFile(outputPath, render(staff), err => {
                 if (err) {
                     throw err;
                 }
