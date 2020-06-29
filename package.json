@@ -9,8 +9,7 @@
   },
   "scripts": {
     "test": "jest --verbose --watch test/*",
-    "employee": "jest --watch test/Employee.test.js"
-
+    "employee": "jest --watch test/Engineer.test.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +22,7 @@
   },
   "homepage": "https://github.com/stevetrilogy/unit10hw#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "inquirer": "^6.3.1"
   },
   "devDependencies": {
