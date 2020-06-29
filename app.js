@@ -80,6 +80,9 @@ const prompt = function() {
         }
     }).then(() => {
         if (cont === false) {
+            if (!fs.existsSync(OUTPUT_DIR)){
+                fs.mkdirSync(OUTPUT_DIR);
+            }
             fs.writeFile(outputPath, render(staff), err => {
                 if (err) {
                     throw err;
