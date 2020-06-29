@@ -45,6 +45,12 @@ const prompt = function() {
             when: (answer) => answer.role === 'Intern',
         },
         {
+            type: 'input',
+            message: 'Office Number:',
+            name: 'number',
+            when: (answer) => answer.role === 'Manager',
+        },
+        {
             type: 'confirm',
             message: 'Enter another employee?',
             name: 'entry',
@@ -53,16 +59,42 @@ const prompt = function() {
         cont = response.entry;
         delete response['entry'];
         let entry = {...response, id};
+        let employee;
+        switch (response.role) {
+            case 'Manager':
+                employee = new Manager(response.name, id, response.email, response.number);
+                break;
+            case 'Engineer':
+                employee = new Engineer(response.name, id, response.email, response.github);
+                break;
+            case 'Intern':
+                employee = new Intern(response.name, id, response.email, response.school);
+                break;
+            default:
+                employee = new Employee(response.name, id, response.email);
+        }
+        staff = [...staff, employee];
         id++;
-        staff = [...staff, entry];
-        console.log(staff);
         if (cont) {
             prompt();
+        }
+    }).then(() => {
+        if (cont === false) {
+            if (!fs.existsSync(OUTPUT_DIR)){
+                fs.mkdirSync(OUTPUT_DIR);
+            }
+            fs.writeFile(outputPath, render(staff), err => {
+                if (err) {
+                    throw err;
+                }
+                console.log('Success! New team.html in /output folder.');
+            });
         }
     })
 }
 
 prompt();
+
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
