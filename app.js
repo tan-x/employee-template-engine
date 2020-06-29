@@ -15,6 +15,7 @@ let id = 1;
 let cont = true;
 
 const prompt = function() {
+    console.log(`Employee ${id} info:`)
     inquirer.prompt([
         {
             type: 'input',
@@ -93,6 +94,7 @@ const prompt = function() {
     })
 }
 
+console.log('\n\n\nFollow prompts to build a team webpage!');
 prompt();
 
 
