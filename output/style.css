@@ -1,5 +1,7 @@
 body {
-    background: linear-gradient(170deg, rgba(255, 153, 37, 0.4), rgba(0, 255, 242, 0.4))
+    background: linear-gradient(170deg, rgba(255, 153, 37, 0.4), rgba(0, 255, 242, 0.4));
+    background-repeat: no-repeat;
+    height: 100vh;
 }
 
 .team-heading {
