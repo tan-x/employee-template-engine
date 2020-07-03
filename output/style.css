@@ -1,0 +1,17 @@
+body {
+    background: linear-gradient(170deg, rgba(255, 153, 37, 0.4), rgba(0, 255, 242, 0.4));
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.team-heading {
+    box-shadow: 0 3px 10px rgb(85, 85, 85);
+    border-radius: 0;
+}
+
+.employee-card {
+    min-width: 320px;
+    margin: 20px;
+    padding: 0;
+    box-shadow: 3px 3px 10px rgb(85, 85, 85);
+}
